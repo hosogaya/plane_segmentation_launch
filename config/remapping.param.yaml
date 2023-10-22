@@ -1,0 +1,18 @@
+/**:
+  ros__parameters:
+    elevation_mapping:
+      input_point_cloud: "/zedm/zed_node/point_cloud/cloud_registered"
+      input_pose_covariance: "/zedm/zed_node/pose_with_covariance"
+      output_map: raw_elevation_map
+
+    post_processing: 
+      input_map: "raw_elevation_map"
+      output_map: "filtered_map"
+
+    elevation_ccl: 
+      input_map: "filtered_map"
+      output_map: "labeled_map"
+
+    convex_plane_extractor:
+      input_map: "labeled_map"
+      output: "convex_plane"
