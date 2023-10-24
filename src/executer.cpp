@@ -21,7 +21,7 @@ int main(int argc, char** argv)
     executor.add_node(post_processor);
     executor.add_node(elevation_ccl);
     executor.add_node(convex_plane_extractor);
-    // executor.add_node(convex_plane_visualizer);
+    executor.add_node(convex_plane_visualizer);
 
     executor.spin();
 
