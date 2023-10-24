@@ -3,6 +3,7 @@
 #include <elevation_mapping_ros2/post_processing/PostProcessor.hpp>
 #include <elevation_ccl/elevation_ccl.h>
 #include <convex_plane_extractor/convex_plane_extractor.h>
+#include <convex_plane_visualizer/convex_plane_visualizer.h>
 
 int main(int argc, char** argv)
 {
@@ -13,12 +14,14 @@ int main(int argc, char** argv)
     rclcpp::Node::SharedPtr post_processor = std::make_shared<elevation_mapping::PostProcessor>(options);
     rclcpp::Node::SharedPtr elevation_ccl = std::make_shared<elevation_ccl::ElevationCCL>(options);
     rclcpp::Node::SharedPtr convex_plane_extractor = std::make_shared<convex_plane::ConvexPlaneExtractor>(options);
+    rclcpp::Node::SharedPtr convex_plane_visualizer = std::make_shared<convex_plane::ConvexPlaneVisualizer>(options);
 
     rclcpp::executors::MultiThreadedExecutor executor;
     executor.add_node(elevation_mapping);
     executor.add_node(post_processor);
     executor.add_node(elevation_ccl);
     executor.add_node(convex_plane_extractor);
+    // executor.add_node(convex_plane_visualizer);
 
     executor.spin();
 

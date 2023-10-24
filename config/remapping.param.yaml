@@ -15,4 +15,9 @@
 
     convex_plane_extractor:
       input_map: "labeled_map"
-      output: "convex_plane"
+      output_map: "plane_divide_map"
+      output_plane: "convex_plane"
+
+    convex_plane_visualizer:
+      input_plane: "convex_plane"
+      output_marker: "contours"

@@ -19,9 +19,9 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(elevation_mapping_ros2 REQUIRED)
-# find_package(elevation_mapping_ros2_post_processor REQUIRED)
 find_package(elevation_ccl REQUIRED)
 find_package(convex_plane_extractor REQUIRED)
+find_package(convex_plane_visualizer REQUIRED)
 find_package(PCL REQUIRED)
 find_package(Eigen3 REQUIRED)
 
@@ -41,6 +41,7 @@ set(dependencies
   elevation_mapping_ros2
   elevation_ccl
   convex_plane_extractor
+  convex_plane_visualizer
 )
 
 

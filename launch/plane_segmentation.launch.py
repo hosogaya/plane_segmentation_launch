@@ -54,6 +54,7 @@ def generate_launch_description():
     post_processing_topic = topic_name["post_processing"]
     elevation_ccl_topic = topic_name["elevation_ccl"]
     convex_plane_topic = topic_name["convex_plane_extractor"]
+    convex_plane_visualizer_topic = topic_name["convex_plane_visualizer"]
         
 
     plane_segmentation_composition = Node(
@@ -74,7 +75,11 @@ def generate_launch_description():
             ("elevation_ccl/output/grid_map", elevation_ccl_topic["output_map"]),
             # convex_plane_extractor
             ("convex_plane_extractor/input/grid_map", convex_plane_topic["input_map"]),
-            ("convex_plane_extractor/output/grid_map", convex_plane_topic["output"]),
+            ("convex_plane_extractor/output/grid_map", convex_plane_topic["output_map"]),
+            ("convex_plane_extractor/output/planes_with_map", convex_plane_topic["output_plane"]),
+            # convex_plane_visualizer
+            ("convex_plane_visualizer/input/planes", convex_plane_visualizer_topic["input_plane"]), 
+            ("convex_plane_visualizer/output/marker", convex_plane_visualizer_topic["output_marker"])
         ],
         arguments=['--ros-args', '--log-level', 'INFO'], 
         output = 'screen'
