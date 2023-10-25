@@ -61,7 +61,7 @@ def generate_launch_description():
         package='plane_segmentation_launch', 
         executable='plane_segmentation_node', 
         name='plane_segmentation_node', 
-        parameters=[elevation_mapping_param, params_post_processing, elevation_ccl_file], 
+        parameters=[elevation_mapping_param, params_post_processing, elevation_ccl_param], 
         remappings=[
             # elevation_mapping
             ("elevation_mapping/input/point_cloud", elevation_mapping_topic["input_point_cloud"]), 
